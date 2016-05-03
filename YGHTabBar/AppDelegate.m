@@ -1,24 +1,85 @@
 //
 //  AppDelegate.m
-//  YGHTabBar
+//  YijietongBuy
 //
-//  Created by YangGH on 16/5/3.
-//  Copyright © 2016年 YangGH. All rights reserved.
+//  Created by YangGH on 15/10/9.
+//  Copyright © 2015年 YangGH. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "Header.h"
 
+static char szListenTabbarViewMove[] = "listenTabViewMove";
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+@synthesize tabBarViewController = tabBarViewController_;
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    
+    /*初始化视图*/
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    self.window = [[UIWindow alloc] initWithFrame:frame];
+    self.window.backgroundColor = [UIColor blackColor];
+    [self changeToHomeViewController];
+    [self.window makeKeyAndVisible];
+    
+#ifdef __IPHONE_7_0
+   
+       [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+   
+#else
+       [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+#endif
+    
+    
     return YES;
 }
+
+-(void) changeToHomeViewController{
+
+    tabBarViewController_ = [[TabBarController alloc] init];
+    self.window.rootViewController = tabBarViewController_;
+    
+
+    
+#if kPanUISwitch
+    self.screenshotView = [[YGHScreenShotView alloc] initWithFrame:CGRectMake(0, 0,kDeviceWidth, KDeviceHeight)];
+    [self.window insertSubview:_screenshotView atIndex:0];
+    
+    [self.window.rootViewController.view addObserver:self forKeyPath:@"transform" options:NSKeyValueObservingOptionNew context:szListenTabbarViewMove];
+    
+    self.screenshotView.hidden = YES;
+    
+#endif
+
+    
+    
+}
+
+
++ (AppDelegate *)currentAppDelegate
+{
+    
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+}
+
+#if kPanUISwitch
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == szListenTabbarViewMove)
+    {
+        NSValue *value  = [change objectForKey:NSKeyValueChangeNewKey];
+        CGAffineTransform newTransform = [value CGAffineTransformValue];
+       
+        [self.screenshotView showEffectChange:CGPointMake(newTransform.tx, 0) ];
+    }
+}
+#endif
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
