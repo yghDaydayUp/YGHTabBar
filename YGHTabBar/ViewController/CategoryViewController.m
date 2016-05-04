@@ -9,5 +9,11 @@
 #import "CategoryViewController.h"
 
 @implementation CategoryViewController
-
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
+    [self setTitle:@"分类"];
+    
+    
+}
 @end

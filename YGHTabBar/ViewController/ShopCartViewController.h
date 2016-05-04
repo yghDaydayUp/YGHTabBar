@@ -9,5 +9,7 @@
 #import "CommonViewController.h"
 
 @interface ShopCartViewController : CommonViewController
-
+@property (nonatomic, strong) UIButton     *goHomeButton;
+@property (nonatomic, strong) UIButton     *addButton;
+@property (nonatomic, strong) UIButton     *clearButton;
 @end

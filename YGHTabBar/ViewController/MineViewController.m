@@ -9,5 +9,11 @@
 #import "MineViewController.h"
 
 @implementation MineViewController
-
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setTitle:@"我的"];
+    self.navigationItem.leftBarButtonItem = nil;
+    
+}
 @end

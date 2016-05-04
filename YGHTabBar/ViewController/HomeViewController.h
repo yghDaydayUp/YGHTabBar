@@ -9,5 +9,5 @@
 #import "CommonViewController.h"
 
 @interface HomeViewController : CommonViewController
-
+@property (nonatomic, strong) UIButton     *nextButton;
 @end

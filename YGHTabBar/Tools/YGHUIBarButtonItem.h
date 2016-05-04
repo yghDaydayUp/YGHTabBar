@@ -1,9 +1,9 @@
 //
 //  CommonBarButtonItem.h
-//  SNFramework
+//  YGHTabBar
 //
-//  Created by  liukun on 13-12-27.
-//  Copyright (c) 2013年 liukun. All rights reserved.
+//  Created by YangGH on 16/5/3.
+//  Copyright © 2016年 YangGH. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, SNNavItemStyle) {
     SNNavItemStyleDone,
 };
 
-@interface SNUIBarButtonItem : UIBarButtonItem
+@interface YGHUIBarButtonItem : UIBarButtonItem
 
 + (instancetype)itemWithTitle:(NSString *)title
                         Style:(SNNavItemStyle)style

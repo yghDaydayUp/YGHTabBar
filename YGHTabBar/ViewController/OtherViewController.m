@@ -7,7 +7,14 @@
 //
 
 #import "OtherViewController.h"
-
+#import "Header.h"
 @implementation OtherViewController
+-(void)viewDidLoad{
+   
+    [super viewDidLoad];
+  
+    [self setTitle:@"我的"];
 
+    self.view.backgroundColor = DefaultBackgroundColor;
+}
 @end

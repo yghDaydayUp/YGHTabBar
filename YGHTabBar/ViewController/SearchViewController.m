@@ -9,5 +9,11 @@
 #import "SearchViewController.h"
 
 @implementation SearchViewController
-
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
+    [self setTitle:@"搜索"];
+    
+    
+}
 @end

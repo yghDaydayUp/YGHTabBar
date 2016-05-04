@@ -7,7 +7,32 @@
 //
 
 #import "YGHScreenShotNavViewController.h"
+#import "Header.h"
+#if kPanUISwitch
+#import "YGHScreenShotNavViewController.h"
+@interface  YGHAuthManagerNavViewController : YGHScreenShotNavViewController <UINavigationControllerDelegate>
+{
+    BOOL isLastStatus;
+}
+#else
+@interface YGHAuthManagerNavViewController : UINavigationController<UINavigationControllerDelegate>
 
-@interface YGHAuthManagerNavViewController : YGHScreenShotNavViewController
+{
+
+   BOOL isLastStatus;
+}
+#endif
+
+@property (nonatomic,strong) UIView *backgroundView;
+
+- (BOOL)needLogonAuth:(UIViewController *)viewController;
+
+- (BOOL)isLotteryController:(UIViewController *)viewController;
+
+- (void)setNavigationBackground:(BOOL)isLottery;
+
+- (void)setNavBarBackgoundWithColor:(UIColor *)color;
+
+- (id)initWithRootViewController:(UIViewController *)rootViewController hasTopRoundCorner:(BOOL)isTopRound;
 
 @end

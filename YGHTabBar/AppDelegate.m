@@ -1,9 +1,9 @@
 //
 //  AppDelegate.m
-//  YijietongBuy
+//  YGHTabBar
 //
-//  Created by YangGH on 15/10/9.
-//  Copyright © 2015年 YangGH. All rights reserved.
+//  Created by YangGH on 16/5/3.
+//  Copyright © 2016年 YangGH. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -27,21 +27,13 @@ static char szListenTabbarViewMove[] = "listenTabViewMove";
     [self changeToHomeViewController];
     [self.window makeKeyAndVisible];
     
-#ifdef __IPHONE_7_0
-   
-       [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
-   
-#else
-       [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-#endif
-    
     
     return YES;
 }
 
 -(void) changeToHomeViewController{
 
-    tabBarViewController_ = [[TabBarController alloc] init];
+    tabBarViewController_ = [[YGHTabBarController alloc] init];
     self.window.rootViewController = tabBarViewController_;
     
 

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface YGHScreenShotNavViewController : UINavigationController
-
+@property (strong ,nonatomic) NSMutableArray *arrayScreenshot;
+@property (nonatomic, strong) UIPanGestureRecognizer *panGes;
 @end

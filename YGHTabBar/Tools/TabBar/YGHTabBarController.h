@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface YGHTabBarController : UITabBarController
+<UITabBarControllerDelegate, UITabBarDelegate>
+{
+    
+}
+
+@property (nonatomic, weak) id            tabBarDelegate;
+
+- (void)showBadgeValue:(NSString*)number;
 
 @end

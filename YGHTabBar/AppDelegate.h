@@ -1,13 +1,13 @@
 //
 //  AppDelegate.h
-//  YijietongBuy
+//  YGHTabBar
 //
-//  Created by YangGH on 15/10/9.
-//  Copyright © 2015年 YangGH. All rights reserved.
+//  Created by YangGH on 16/5/3.
+//  Copyright © 2016年 YangGH. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "TabBarController.h"
+#import "YGHTabBarController.h"
 #import "Header.h"
 #if kPanUISwitch
 #import "YGHScreenShotView.h"
@@ -15,14 +15,14 @@
 
 #undef APP_DELEGATE
 #define APP_DELEGATE ((AppDelegate *)[[UIApplication sharedApplication] delegate])
-@class TabBarController;
+@class YGHTabBarController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
-  TabBarController *tabBarViewController_;
+  YGHTabBarController *tabBarViewController_;
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, readonly, strong) TabBarController *tabBarViewController;
+@property (nonatomic, readonly, strong) YGHTabBarController *tabBarViewController;
 #if kPanUISwitch
 @property (strong, nonatomic) YGHScreenShotView *screenshotView;
 #endif
